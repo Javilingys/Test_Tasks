@@ -1,0 +1,47 @@
+services:
+  pong.api:
+    build:
+      context: E:\Projects\Csharp\Test_Tasks\BKS\PingPong\src
+      dockerfile: Services/Pong/Pong.API/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Pong.API
+      target: base
+    container_name: Pong.API
+    depends_on:
+      pongdb:
+        condition: service_started
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: pongapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/net6.0/Pong.API.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 8000
+      target: 80
+    tty: true
+    volumes:
+    - E:\Projects\Csharp\Test_Tasks\BKS\PingPong\src\Services\Pong\Pong.API:/app:rw
+    - C:\Users\shkol\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\shkol\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\shkol\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+    - C:\Users\shkol\.nuget\packages:/root/.nuget/packages:ro
+    - E:\Projects\Csharp\Test_Tasks\BKS\PingPong\src:/src:rw
+  pongdb:
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      SA_PASSWORD: StrongPa$$w0rd
+    image: mcr.microsoft.com/mssql/server:2022-latest
+version: '3.4'

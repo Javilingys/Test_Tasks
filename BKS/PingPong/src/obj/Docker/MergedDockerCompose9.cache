@@ -1,0 +1,23 @@
+services:
+  pong.api:
+    build:
+      context: E:\Projects\Csharp\Test_Tasks\BKS\PingPong\src
+      dockerfile: Services/Pong/Pong.API/Dockerfile
+    depends_on:
+      pongdb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+    image: pongapi
+    ports:
+    - published: 8000
+      target: 80
+  pongdb:
+    container_name: pongdb
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      SA_PASSWORD: StrongPa$$w0rd
+    image: mcr.microsoft.com/mssql/server:2022-latest
+version: '3.4'

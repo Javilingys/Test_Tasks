@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  pongdb:
+    container_name: pongdb
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=StrongPa$$w0rd
+      - MSSQL_PID=Developer
+
+  pong.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionStrings__SqlServerConnection=Server=pongdb;Database=pong;User Id=sa;Password=StrongPa$$w0rd
+    ports:
+      - "8000:80"
+    depends_on:
+      - pongdb

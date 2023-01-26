@@ -1,0 +1,13 @@
+services:
+  pong.api:
+    build:
+      context: E:\Projects\Csharp\Test_Tasks\BKS\PingPong\src
+      dockerfile: Services/Pong/Pong.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: pongapi
+    ports:
+    - published: 8000
+      target: 80
+version: '3.4'
