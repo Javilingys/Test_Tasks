@@ -11,6 +11,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SmartWash.API.Application.Contracts;
+using SmartWash.API.Application.Service;
+using SmartWash.API.Domain.Contracts;
+using SmartWash.API.Infrastructure;
+using SmartWash.API.Infrastructure.Repository;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace SmartWash.API
 {
@@ -26,6 +35,13 @@ namespace SmartWash.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(opt =>
+            {
+                opt.UseInMemoryDatabase("InMem");
+            });
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ISaleService, SaleService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
