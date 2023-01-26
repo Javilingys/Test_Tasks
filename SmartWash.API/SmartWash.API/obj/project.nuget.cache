@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cZK4u8NUgxUrhlQjq/GuTalf62PxMdEv82aUqRh8hrZwjcvQlFGAQrcPki62FudusScJoJRxC+Pshr0bqe5/0w==",
+  "dgSpecHash": "7YI0ULslod9+AaICGeMArE9YJejrH09LsVDHFQDX9hsyuGptLsRB+ycUqrgtTrfXj1NUe+j6hLMJ4gacQoWZ9Q==",
   "success": true,
   "projectFilePath": "E:\\Projects\\Csharp\\Test_Tasks\\SmartWash.API\\SmartWash.API\\SmartWash.API.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\shkol\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\shkol\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\shkol\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\shkol\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\shkol\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\shkol\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "C:\\Users\\shkol\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",

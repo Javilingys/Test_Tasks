@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartWash.API", "SmartWash.API\SmartWash.API.csproj", "{1F570121-A908-4B11-A396-C3D2B34BF04C}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C08AB7DE-8E60-42E8-BD83-44DEAB552D9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1F570121-A908-4B11-A396-C3D2B34BF04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F570121-A908-4B11-A396-C3D2B34BF04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F570121-A908-4B11-A396-C3D2B34BF04C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C08AB7DE-8E60-42E8-BD83-44DEAB552D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C08AB7DE-8E60-42E8-BD83-44DEAB552D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C08AB7DE-8E60-42E8-BD83-44DEAB552D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C08AB7DE-8E60-42E8-BD83-44DEAB552D9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

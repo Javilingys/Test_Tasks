@@ -1,0 +1,3 @@
+1. Установить docker
+2. Открыть консоль в текущей дерриктории.
+3. Написать в консоле: docker compose -f docker-compose.yml -f docker-compose.override.yml up -d

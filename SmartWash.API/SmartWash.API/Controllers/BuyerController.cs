@@ -34,6 +34,7 @@ namespace SmartWash.API.Controllers
             return Ok(result.Select(x => new BuyerDto()
                 {
                     Id = x.Id,
+                    Name = x.Name,
                     SalesIds = x.BuyerSales.Select(bs => bs.SaleId).ToList()
                 })
                 .ToList()
@@ -51,10 +52,11 @@ namespace SmartWash.API.Controllers
                 return NotFound("Пользователь не найден");
             }
 
-            // по-хорошему надо мапить в DTO. Но для простоты сойдет
+            // по-хорошему надо мапить в DTO чеерз автомаппе. Но для простоты сойдет
             return Ok(new BuyerDto()
             {
                 Id = result.Id,
+                Name = result.Name,
                 SalesIds = result.BuyerSales.Select(bs => bs.SaleId).ToList()
             });
         }
