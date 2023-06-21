@@ -1,0 +1,77 @@
+﻿@using X.PagedList.Web.Common
+@model ViewArchivesViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+    List<SelectListItem> months = ViewData["Months"] as List<SelectListItem>;
+    List<SelectListItem> years = ViewData["Years"] as List<SelectListItem>;
+}
+
+<div class="text-center">
+    <h1 class="display-4">View Archives</h1>
+    
+    <form asp-action="ViewArchive" method="get">
+        <div>
+            <select asp-for="Month" asp-items="months">
+                <option value="">Все</option>
+            </select>
+            <select asp-for="Year" asp-items="years">
+                <option value="">Все</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Показать</button>
+        </div>
+    </form>
+
+    <table class="table">
+        <tr>
+            <th>Дата</th>
+            <th>Время МСК</th>
+            <th>Температура</th>
+            <th>Влажность, %</th>
+            <th>Td</th>
+            <th>мм рт.ст.</th>
+            <th>Направление ветра</th>
+            <th>Скорость ветра, м/с</th>
+            <th>Облачность, %</th>
+            <th>h</th>
+            <th>VV</th>
+            <th>Погодные явление</th>
+        </tr>
+        @foreach (var archive in Model.ArchivesPagedList)
+        {
+            <tr>
+                <td>@archive.DateOnly</td>
+                <td>@archive.TimeOnly</td>
+                <td>@archive.Temperature</td>
+                <td>@archive.AirHumidity</td>
+                <td>@archive.Td</td>
+                <td>@archive.Pressure</td>
+                <td>@archive.WindDirection</td>
+                <td>@archive.WindSpeed</td>
+                <td>@archive.Cloudy</td>
+                <td>@archive.H</td>
+                <td>@archive.HorizontalView</td>
+                <td>@archive.Other</td>
+            </tr>
+        }
+    </table>
+    
+    Page @(Model.ArchivesPagedList.PageCount < Model.ArchivesPagedList.PageNumber 
+             ? 0
+             : Model.ArchivesPagedList.PageNumber) of @Model.ArchivesPagedList.PageCount
+    
+    @Html.PagedListPager(Model.ArchivesPagedList, page => Url.Action("ViewArchive",
+        new
+        {
+            PageIndex = page,
+            Month = Model.Month,
+            Year = Model.Year
+        }),
+        new PagedListRenderOptions
+        {
+            ContainerDivClasses = new[] { "navigation d-flex justify-content-center" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+            MaximumPageNumbersToDisplay = 10
+        })
+</div>

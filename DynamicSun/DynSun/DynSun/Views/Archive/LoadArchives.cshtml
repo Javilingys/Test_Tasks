@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    string errorMsg = ViewData["ExcelError"] as string;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Load</h1>
+    
+    @if (errorMsg is not null)
+    {
+        <p class="text-danger">@errorMsg</p>
+    }
+    
+    <form method="post" enctype="multipart/form-data">
+        <span>Select files: </span>
+        <input type="file" name="postedFiles" multiple="" />
+        <br />
+        <input class="mt-3" type="submit" value="Upload" asp-action="PostArchives" />
+    </form>
+</div>
